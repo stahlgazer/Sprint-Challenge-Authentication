@@ -26,11 +26,11 @@ describe("server", function () {
   });
 });
 
-describe("server register", function () {
+describe("server register  /register", function () {
   beforeEach(async () => {
     await db("users").truncate();
   });
-  describe("post success status /register", function () {
+  describe("post success status", function () {
     it("return 201 on success", function () {
       return request(server)
         .post("/api/auth/register")
@@ -41,7 +41,7 @@ describe("server register", function () {
     });
   });
 
-  describe("user created status /register", function () {
+  describe("user created status", function () {
     it("registered a new user", async function () {
       const existing = await db("users");
 
@@ -64,8 +64,8 @@ describe("server register", function () {
   });
 });
 
-describe("server login", function () {
-  describe("login success", function () {
+describe("server login /login", function () {
+  describe("login success status", function () {
     it("should return 200 on success", function () {
       return request(server)
         .post("/api/auth/login")
@@ -77,7 +77,7 @@ describe("server login", function () {
   });
   describe("login success message", function () {
     it("should welcome user in response", function () {
-        return request(server)
+      return request(server)
         .post("/api/auth/login")
         .send({ username: "gavin", password: "gavin" })
         .then((res) => {
