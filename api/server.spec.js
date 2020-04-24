@@ -43,8 +43,6 @@ describe("server register  /register", function () {
 
   describe("user created status", function () {
     it("registered a new user", async function () {
-      const existing = await db("users");
-
       await request(server)
         .post("/api/auth/register")
         .send({ username: "gavin", password: "gavin" })
